@@ -34,3 +34,23 @@ describe("Render", () => {
 		expect(viewportColumnElFour).toBeInTheDocument()
 	})
 })
+
+describe("Behaviour", () => {
+	it("Should allow users open/close sidebar", () => {
+		render(<App />)
+
+		const buttonEl = screen.getByRole("button")
+		const sidebarEl = screen.getByTestId("sidebar")
+		const inputsGroupEl = screen.getByTestId("inputs-group")
+
+		expect(buttonEl).toHaveClass("sidebar-btn ")
+		expect(sidebarEl).toHaveStyle("width: 300px")
+		expect(inputsGroupEl).toHaveClass("inputs-group")
+
+		userEvent.click(buttonEl)
+
+		expect(buttonEl).toHaveClass("sidebar-btn sidebar-btn-closed")
+		expect(sidebarEl).toHaveStyle("width: 40px")
+		expect(inputsGroupEl).toHaveClass("hidden")
+	})
+})
