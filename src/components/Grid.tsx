@@ -1,3 +1,5 @@
+import ViewportItem from "./ViewportItem"
+
 type GridProps = {
 	rows: number
 	columns: number
@@ -16,11 +18,12 @@ export default function Grid({ rows, columns }: GridProps) {
 					className="row"
 				>
 					{Array.from({ length: columns }).map((_, colIdx) => (
-						<div
+						<ViewportItem
 							key={colIdx}
-							data-testid={`viewport-item-${colIdx + 1}`}
-							className="viewport-item"
-						></div>
+							columns={columns}
+							rows={rows}
+							index={colIdx}
+						/>
 					))}
 				</div>
 			))}
