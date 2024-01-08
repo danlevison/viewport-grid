@@ -3,7 +3,12 @@ import { render, screen } from "@testing-library/react"
 import Grid from "../components/Grid"
 
 const renderGrid = () => {
-	render(<Grid />)
+	render(
+		<Grid
+			rows={1}
+			columns={1}
+		/>
+	)
 }
 
 describe("Render", () => {

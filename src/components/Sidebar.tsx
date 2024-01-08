@@ -1,9 +1,32 @@
 import { useState } from "react"
 import SidebarBtn from "./SidebarBtn"
 
-export default function Sidebar() {
+type SidebarProps = {
+	onInputChange: (size: { columns: number; rows: number }) => void
+}
+
+export default function Sidebar({ onInputChange }: SidebarProps) {
 	const [rows, setRows] = useState(1)
 	const [columns, setColumns] = useState(1)
+
+	const handleInputChange = (
+		e: React.ChangeEvent<HTMLInputElement>,
+		type: string
+	) => {
+		const value = Math.min(parseInt(e.target.value), 10)
+
+		if (type === "columns") {
+			setColumns(() => {
+				onInputChange({ columns: value, rows })
+				return value
+			})
+		} else {
+			setRows(() => {
+				onInputChange({ columns, rows: value })
+				return value
+			})
+		}
+	}
 
 	return (
 		<aside
@@ -24,7 +47,7 @@ export default function Sidebar() {
 						Rows
 					</label>
 					<input
-						onChange={(e) => setRows(parseInt(e.target.value))}
+						onChange={(e) => handleInputChange(e, "rows")}
 						value={isNaN(rows) ? "" : rows}
 						type="number"
 						id="rows"
@@ -42,7 +65,7 @@ export default function Sidebar() {
 						Columns
 					</label>
 					<input
-						onChange={(e) => setColumns(parseInt(e.target.value))}
+						onChange={(e) => handleInputChange(e, "columns")}
 						value={isNaN(columns) ? "" : columns}
 						type="number"
 						id="columns"

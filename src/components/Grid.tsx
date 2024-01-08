@@ -1,8 +1,20 @@
-export default function Grid() {
+type GridProps = {
+	rows: number
+	columns: number
+}
+
+export default function Grid({ rows, columns }: GridProps) {
 	return (
 		<section
 			className="grid"
 			data-testid="grid"
-		></section>
+		>
+			{Array.from({ length: rows }).map((_, rowIdx) => (
+				<div
+					key={rowIdx}
+					data-testid={`row-${rowIdx + 1}`}
+				></div>
+			))}
+		</section>
 	)
 }
