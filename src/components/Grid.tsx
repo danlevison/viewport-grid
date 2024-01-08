@@ -14,7 +14,14 @@ export default function Grid({ rows, columns }: GridProps) {
 					key={rowIdx}
 					data-testid={`row-${rowIdx + 1}`}
 					className="row"
-				></div>
+				>
+					{Array.from({ length: columns }).map((_, colIdx) => (
+						<div
+							key={colIdx}
+							data-testid={`viewport-item-${colIdx + 1}`}
+						></div>
+					))}
+				</div>
 			))}
 		</section>
 	)
