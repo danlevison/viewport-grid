@@ -13,4 +13,11 @@ describe("Render", () => {
 		expect(sectionEl).toBeInTheDocument()
 		expect(sectionEl.nodeName.toLowerCase()).toBe("section")
 	})
+
+	it("Should render one row div", () => {
+		renderGrid()
+		const rowEl = screen.getByTestId("row-1")
+		expect(rowEl).toBeInTheDocument()
+		expect(rowEl.nodeName.toLowerCase()).toBe("div")
+	})
 })
