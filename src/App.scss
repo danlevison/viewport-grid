@@ -29,3 +29,24 @@ body {
 	cursor: pointer;
 	background-color: $accent-color;
 }
+
+.inputs-group {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 1em;
+
+	.input-container {
+		display: flex;
+		flex-direction: column;
+		width: 90%;
+	}
+}
+
+input {
+	background-color: transparent;
+	color: inherit;
+	border: 2px solid $accent-color;
+	padding: 0.3em;
+}
