@@ -18,4 +18,19 @@ describe("Render", () => {
 		const viewportRowElFour = screen.getByTestId("row-4")
 		expect(viewportRowElFour).toBeInTheDocument()
 	})
+
+	it("Should render the correct amount of columns", () => {
+		render(<App />)
+		const columnsInputEl = screen.getByRole("spinbutton", { name: "Columns" })
+		const viewportColumnElOne = screen.getByTestId("viewport-item-1")
+
+		expect(columnsInputEl).toHaveValue(1)
+		expect(viewportColumnElOne).toBeInTheDocument()
+
+		userEvent.clear(columnsInputEl)
+		userEvent.type(columnsInputEl, "4")
+
+		const viewportColumnElFour = screen.getByTestId("viewport-item-4")
+		expect(viewportColumnElFour).toBeInTheDocument()
+	})
 })

@@ -25,4 +25,11 @@ describe("Render", () => {
 		expect(rowEl).toBeInTheDocument()
 		expect(rowEl.nodeName.toLowerCase()).toBe("div")
 	})
+
+	it("Should render one viewport item div", () => {
+		renderGrid()
+		const viewportItemEl = screen.getByTestId("viewport-item-1")
+		expect(viewportItemEl).toBeInTheDocument()
+		expect(viewportItemEl.nodeName.toLowerCase()).toBe("div")
+	})
 })
