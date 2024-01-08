@@ -3,12 +3,14 @@ import { useState, useEffect, useRef } from "react"
 type ViewportItemProps = {
 	columns: number
 	rows: number
+	sidebarIsOpen: boolean
 	index: number
 }
 
 export default function ViewportItem({
 	columns,
 	rows,
+	sidebarIsOpen,
 	index
 }: ViewportItemProps) {
 	const viewportRef = useRef<HTMLDivElement | null>(null)
@@ -29,7 +31,7 @@ export default function ViewportItem({
 		window.addEventListener("resize", handleResize)
 
 		return () => window.removeEventListener("resize", handleResize)
-	}, [columns, rows])
+	}, [columns, rows, sidebarIsOpen])
 
 	return (
 		<div

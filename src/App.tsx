@@ -21,6 +21,7 @@ export function App() {
 			<Grid
 				rows={gridSize.rows}
 				columns={gridSize.columns}
+				sidebarIsOpen={sidebarIsOpen}
 			/>
 		</main>
 	)

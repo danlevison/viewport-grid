@@ -3,9 +3,10 @@ import ViewportItem from "./ViewportItem"
 type GridProps = {
 	rows: number
 	columns: number
+	sidebarIsOpen: boolean
 }
 
-export default function Grid({ rows, columns }: GridProps) {
+export default function Grid({ rows, columns, sidebarIsOpen }: GridProps) {
 	return (
 		<section
 			className="grid"
@@ -22,6 +23,7 @@ export default function Grid({ rows, columns }: GridProps) {
 							key={colIdx}
 							columns={columns}
 							rows={rows}
+							sidebarIsOpen={sidebarIsOpen}
 							index={colIdx}
 						/>
 					))}
