@@ -12,39 +12,23 @@ export default function ViewportItem({
 	index
 }: ViewportItemProps) {
 	const viewportRef = useRef<HTMLDivElement | null>(null)
-	const [width, setWidth] = useState(0)
-	const [height, setHeight] = useState(0)
+	const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
 
 	useEffect(() => {
-		if (viewportRef.current) {
-			setWidth(viewportRef.current.offsetWidth)
-		}
-		if (viewportRef.current) {
-			setHeight(viewportRef.current.offsetHeight)
-		}
-
-		const getWidth = () => {
+		const handleResize = () => {
 			if (viewportRef.current) {
-				setWidth(viewportRef.current.offsetWidth)
+				setDimensions({
+					width: viewportRef.current.offsetWidth,
+					height: viewportRef.current.offsetHeight
+				})
 			}
 		}
 
-		const getHeight = () => {
-			if (viewportRef.current) {
-				setHeight(viewportRef.current.offsetHeight)
-			}
-		}
+		handleResize()
 
-		window.addEventListener("resize", () => {
-			getWidth()
-			getHeight()
-		})
+		window.addEventListener("resize", handleResize)
 
-		return () =>
-			window.removeEventListener("resize", () => {
-				getWidth()
-				getHeight()
-			})
+		return () => window.removeEventListener("resize", handleResize)
 	}, [columns, rows])
 
 	return (
@@ -53,9 +37,9 @@ export default function ViewportItem({
 			data-testid={`viewport-item-${index + 1}`}
 			className="viewport-item"
 		>
-			<span data-testid="width">{width}</span>
+			<span data-testid="width">{dimensions.width}</span>
 			<span>X</span>
-			<span>{height}</span>
+			<span>{dimensions.height}</span>
 		</div>
 	)
 }
