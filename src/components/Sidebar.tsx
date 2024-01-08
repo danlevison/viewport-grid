@@ -1,4 +1,4 @@
-import { Burger } from "../icons"
+import SidebarBtn from "./SidebarBtn"
 
 export default function Sidebar() {
 	return (
@@ -6,12 +6,7 @@ export default function Sidebar() {
 			data-testid="sidebar"
 			className="sidebar"
 		>
-			<button
-				className="sidebar-btn"
-				aria-label="Toggle the sidebar"
-			>
-				<Burger />
-			</button>
+			<SidebarBtn />
 		</aside>
 	)
 }
