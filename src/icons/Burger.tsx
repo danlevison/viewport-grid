@@ -5,6 +5,7 @@ export function Burger() {
 			viewBox="0 0 100 80"
 			width="20"
 			height="20"
+			aria-hidden={true}
 		>
 			<rect
 				width="100"

@@ -14,6 +14,7 @@ export default function SidebarBtn({
 			onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
 			className={`sidebar-btn ${!sidebarIsOpen ? "sidebar-btn-closed" : ""}`}
 			aria-label="Toggle the sidebar"
+			aria-expanded={sidebarIsOpen ? true : false}
 		>
 			<Burger />
 		</button>
