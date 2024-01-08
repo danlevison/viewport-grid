@@ -64,3 +64,14 @@ input {
 	display: flex;
 	width: 100%;
 }
+
+.viewport-item {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin: 1px;
+	border: $border;
+	background-color: $viewport-background-color;
+}

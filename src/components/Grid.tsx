@@ -19,6 +19,7 @@ export default function Grid({ rows, columns }: GridProps) {
 						<div
 							key={colIdx}
 							data-testid={`viewport-item-${colIdx + 1}`}
+							className="viewport-item"
 						></div>
 					))}
 				</div>
