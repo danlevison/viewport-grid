@@ -1,8 +1,14 @@
+import { Burger } from "../icons"
+
 export default function Sidebar() {
 	return (
 		<aside
 			data-testid="sidebar"
 			className="sidebar"
-		></aside>
+		>
+			<button aria-label="Toggle the sidebar">
+				<Burger />
+			</button>
+		</aside>
 	)
 }
