@@ -59,3 +59,8 @@ input {
 	padding: 0.2em;
 	overflow: auto; /*  Enable scrolling if necessary */
 }
+
+.row {
+	display: flex;
+	width: 100%;
+}

@@ -13,6 +13,7 @@ export default function Grid({ rows, columns }: GridProps) {
 				<div
 					key={rowIdx}
 					data-testid={`row-${rowIdx + 1}`}
+					className="row"
 				></div>
 			))}
 		</section>
