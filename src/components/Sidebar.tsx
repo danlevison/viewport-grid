@@ -3,9 +3,15 @@ import SidebarBtn from "./SidebarBtn"
 
 type SidebarProps = {
 	onInputChange: (size: { columns: number; rows: number }) => void
+	sidebarIsOpen: boolean
+	setSidebarIsOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export default function Sidebar({ onInputChange }: SidebarProps) {
+export default function Sidebar({
+	onInputChange,
+	sidebarIsOpen,
+	setSidebarIsOpen
+}: SidebarProps) {
 	const [rows, setRows] = useState(1)
 	const [columns, setColumns] = useState(1)
 
@@ -32,11 +38,15 @@ export default function Sidebar({ onInputChange }: SidebarProps) {
 		<aside
 			data-testid="sidebar"
 			className="sidebar"
+			style={{ width: `${sidebarIsOpen ? "300px" : "40px"}` }}
 		>
-			<SidebarBtn />
+			<SidebarBtn
+				sidebarIsOpen={sidebarIsOpen}
+				setSidebarIsOpen={setSidebarIsOpen}
+			/>
 
 			<div
-				className="inputs-group"
+				className={`${sidebarIsOpen ? "inputs-group" : "hidden"}`}
 				data-testid="inputs-group"
 			>
 				<div className="input-container">
@@ -53,7 +63,6 @@ export default function Sidebar({ onInputChange }: SidebarProps) {
 						id="rows"
 						name="rows"
 						min={1}
-						data-testid="rows-input"
 					/>
 				</div>
 
@@ -71,7 +80,6 @@ export default function Sidebar({ onInputChange }: SidebarProps) {
 						id="columns"
 						name="columns"
 						min={1}
-						data-testid="columns-input"
 					/>
 				</div>
 			</div>

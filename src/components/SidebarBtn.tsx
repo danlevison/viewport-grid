@@ -1,9 +1,18 @@
 import { Burger } from "../icons"
 
-export default function SidebarBtn() {
+type SidebarBtnProps = {
+	sidebarIsOpen: boolean
+	setSidebarIsOpen: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export default function SidebarBtn({
+	sidebarIsOpen,
+	setSidebarIsOpen
+}: SidebarBtnProps) {
 	return (
 		<button
-			className="sidebar-btn"
+			onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
+			className={`sidebar-btn ${!sidebarIsOpen ? "sidebar-btn-closed" : ""}`}
 			aria-label="Toggle the sidebar"
 		>
 			<Burger />

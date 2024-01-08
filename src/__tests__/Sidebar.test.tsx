@@ -4,7 +4,13 @@ import userEvent from "@testing-library/user-event"
 import Sidebar from "../components/Sidebar"
 
 const renderSidebar = () => {
-	render(<Sidebar onInputChange={jest.fn()} />)
+	render(
+		<Sidebar
+			sidebarIsOpen={true}
+			setSidebarIsOpen={jest.fn()}
+			onInputChange={jest.fn()}
+		/>
+	)
 }
 
 describe("Render", () => {

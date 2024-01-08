@@ -15,12 +15,15 @@ body {
 	display: flex;
 	width: 100%;
 	height: 100dvh;
+	color: $text-color;
+}
+
+.hidden {
+	display: none;
 }
 
 .sidebar {
 	background-color: $sidebar-background-color;
-	width: 300px;
-	height: 100%;
 }
 
 .sidebar-btn {
@@ -29,6 +32,12 @@ body {
 	border: none;
 	cursor: pointer;
 	background-color: $accent-color;
+}
+
+.sidebar-btn-closed {
+	justify-content: center;
+	width: 100%;
+	background-color: transparent;
 }
 
 .inputs-group {
