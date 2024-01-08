@@ -1,3 +1,3 @@
 export default function Grid() {
-	return <div>Grid</div>
+	return <section data-testid="grid"></section>
 }
