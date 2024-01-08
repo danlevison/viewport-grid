@@ -6,7 +6,10 @@ export default function Sidebar() {
 			data-testid="sidebar"
 			className="sidebar"
 		>
-			<button aria-label="Toggle the sidebar">
+			<button
+				className="sidebar-btn"
+				aria-label="Toggle the sidebar"
+			>
 				<Burger />
 			</button>
 		</aside>
