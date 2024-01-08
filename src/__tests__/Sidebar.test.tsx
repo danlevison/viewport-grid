@@ -13,4 +13,10 @@ describe("Render", () => {
 		expect(sidebarEl).toBeInTheDocument()
 		expect(sidebarEl.nodeName.toLowerCase()).toBe("aside")
 	})
+
+	it("Should render a expand/collapse sidebar button", () => {
+		renderSidebar()
+		const buttonEl = screen.getByRole("button")
+		expect(buttonEl).toBeInTheDocument()
+	})
 })
