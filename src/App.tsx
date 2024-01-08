@@ -1,5 +1,10 @@
 import "./App.scss"
+import Sidebar from "./components/Sidebar"
 
 export function App() {
-	return <main className="app">React App</main>
+	return (
+		<main className="app">
+			<Sidebar />
+		</main>
+	)
 }
