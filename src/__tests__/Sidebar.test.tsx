@@ -73,7 +73,7 @@ describe("Behaviour", () => {
 		expect(rowsInputEl).toHaveValue(4)
 	})
 
-	it("Should allow users to type in the columns input", async () => {
+	it("Should allow users to type in the columns input", () => {
 		renderSidebar()
 		const columnsInputEl = screen.getByRole("spinbutton", { name: "Columns" })
 

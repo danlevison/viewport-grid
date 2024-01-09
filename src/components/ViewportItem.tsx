@@ -39,7 +39,7 @@ export default function ViewportItem({
 			data-testid={`viewport-item-${index + 1}`}
 			className="viewport-item"
 		>
-			<span data-testid="width">{dimensions.width}</span>
+			<span>{dimensions.width}</span>
 			<span>X</span>
 			<span>{dimensions.height}</span>
 		</div>

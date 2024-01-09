@@ -7,6 +7,7 @@ const renderGrid = () => {
 		<Grid
 			rows={1}
 			columns={1}
+			sidebarIsOpen={true}
 		/>
 	)
 }
