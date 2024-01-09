@@ -1,20 +1,21 @@
-import { useState } from "react"
 import SidebarBtn from "./SidebarBtn"
 
 type SidebarProps = {
 	onInputChange: (size: { columns: number; rows: number }) => void
 	sidebarIsOpen: boolean
 	setSidebarIsOpen: React.Dispatch<React.SetStateAction<boolean>>
+	gridSize: {
+		columns: number
+		rows: number
+	}
 }
 
 export default function Sidebar({
 	onInputChange,
 	sidebarIsOpen,
-	setSidebarIsOpen
+	setSidebarIsOpen,
+	gridSize
 }: SidebarProps) {
-	const [rows, setRows] = useState(1)
-	const [columns, setColumns] = useState(1)
-
 	const handleInputChange = (
 		e: React.ChangeEvent<HTMLInputElement>,
 		type: string
@@ -22,15 +23,9 @@ export default function Sidebar({
 		const value = Math.min(parseInt(e.target.value), 10)
 
 		if (type === "columns") {
-			setColumns(() => {
-				onInputChange({ columns: value, rows })
-				return value
-			})
+			onInputChange({ ...gridSize, columns: value })
 		} else {
-			setRows(() => {
-				onInputChange({ columns, rows: value })
-				return value
-			})
+			onInputChange({ ...gridSize, rows: value })
 		}
 	}
 
@@ -58,7 +53,7 @@ export default function Sidebar({
 					</label>
 					<input
 						onChange={(e) => handleInputChange(e, "rows")}
-						value={isNaN(rows) ? "" : rows}
+						value={isNaN(gridSize.rows) ? "" : gridSize.rows}
 						type="number"
 						id="rows"
 						name="rows"
@@ -75,7 +70,7 @@ export default function Sidebar({
 					</label>
 					<input
 						onChange={(e) => handleInputChange(e, "columns")}
-						value={isNaN(columns) ? "" : columns}
+						value={isNaN(gridSize.columns) ? "" : gridSize.columns}
 						type="number"
 						id="columns"
 						name="columns"

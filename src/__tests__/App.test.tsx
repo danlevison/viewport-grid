@@ -53,4 +53,28 @@ describe("Behaviour", () => {
 		expect(sidebarEl).toHaveStyle("width: 40px")
 		expect(inputsGroupEl).toHaveClass("hidden")
 	})
+
+	it("Should allow users to type in the rows input", () => {
+		render(<App />)
+		const rowsInputEl = screen.getByRole("spinbutton", { name: "Rows" })
+
+		expect(rowsInputEl).toHaveValue(1)
+
+		userEvent.clear(rowsInputEl)
+		userEvent.type(rowsInputEl, "4")
+
+		expect(rowsInputEl).toHaveValue(4)
+	})
+
+	it("Should allow users to type in the columns input", () => {
+		render(<App />)
+		const columnsInputEl = screen.getByRole("spinbutton", { name: "Columns" })
+
+		expect(columnsInputEl).toHaveValue(1)
+
+		userEvent.clear(columnsInputEl)
+		userEvent.type(columnsInputEl, "4")
+
+		expect(columnsInputEl).toHaveValue(4)
+	})
 })

@@ -9,6 +9,7 @@ const renderSidebar = () => {
 			sidebarIsOpen={true}
 			setSidebarIsOpen={jest.fn()}
 			onInputChange={jest.fn()}
+			gridSize={{ columns: 1, rows: 1 }}
 		/>
 	)
 }
@@ -61,30 +62,6 @@ describe("Render", () => {
 })
 
 describe("Behaviour", () => {
-	it("Should allow users to type in the rows input", () => {
-		renderSidebar()
-		const rowsInputEl = screen.getByRole("spinbutton", { name: "Rows" })
-
-		expect(rowsInputEl).toHaveValue(1)
-
-		userEvent.clear(rowsInputEl)
-		userEvent.type(rowsInputEl, "4")
-
-		expect(rowsInputEl).toHaveValue(4)
-	})
-
-	it("Should allow users to type in the columns input", () => {
-		renderSidebar()
-		const columnsInputEl = screen.getByRole("spinbutton", { name: "Columns" })
-
-		expect(columnsInputEl).toHaveValue(1)
-
-		userEvent.clear(columnsInputEl)
-		userEvent.type(columnsInputEl, "4")
-
-		expect(columnsInputEl).toHaveValue(4)
-	})
-
 	it("Should tab to the correct element", () => {
 		renderSidebar()
 

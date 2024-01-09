@@ -17,6 +17,7 @@ export function App() {
 				onInputChange={handleInputChange}
 				sidebarIsOpen={sidebarIsOpen}
 				setSidebarIsOpen={setSidebarIsOpen}
+				gridSize={gridSize}
 			/>
 			<Grid
 				rows={gridSize.rows}
